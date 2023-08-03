@@ -71,8 +71,8 @@ worksheet = workbook.add_sheet('gene')
 r_list1 = file2title("./rna_list_2.xls")
 print(r_list1)
 print(len(r_list1))
-# open("./rna_description.csv", 'w')
-M = 8783
+open("./rna_description2.csv", 'w')
+M = 17000
 for i, _ in enumerate(r_list1[M:]):
     print(_)
     description, name, UniProtKB, geneType = find_gene(_[0])
@@ -83,7 +83,7 @@ for i, _ in enumerate(r_list1[M:]):
     # worksheet.write(i, 4, UniProtKB)
     # worksheet.write(i, 5, geneType)
 
-    with open("./rna_description.csv", 'a', newline="") as csvfile:
+    with open("./rna_description2.csv", 'a', newline="") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow([i+M, _[0], description, name, UniProtKB, geneType])
 
